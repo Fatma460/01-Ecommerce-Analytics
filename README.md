@@ -229,11 +229,9 @@ These are potential recommendations based on the questions explored in the proje
 
 ### 1. Clone the Repository
 
-Replace `your-repo-name` with the actual GitHub repository name.
-
 ```bash
-git clone https://github.com/Fatma460/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Fatma460/01-Ecommerce-Analytics.git
+cd 01-Ecommerce-Analytics
 ```
 
 ### 2. Create a Virtual Environment
