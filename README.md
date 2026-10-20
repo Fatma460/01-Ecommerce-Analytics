@@ -78,6 +78,8 @@ The dataset is not included in this GitHub repository. See [How to Run the Proje
 ```text
 01-Ecommerce-Analytics/
 │
+├── dashboard/
+│   └── Olist_Ecommerce_Analytics_Dashboard.pbix
 ├── notebooks/
 │   ├── 01_Data_Loading_and_Exploration.ipynb
 │   ├── 02_Data_Cleaning_and_Preparation.ipynb
@@ -96,7 +98,7 @@ The dataset is not included in this GitHub repository. See [How to Run the Proje
 └── requirements.txt
 ```
 
-**Note:** The `data/` directory and Power BI `.pbix` file are currently excluded from the GitHub repository. The dataset must be downloaded separately before running the notebooks. Dashboard screenshots are available in the `screenshots/` directory.
+**Note:** The original dataset files in the `data/` directory are excluded from this repository and must be downloaded separately.
 
 ## Analytical Workflow
 
@@ -195,33 +197,113 @@ Examines order statuses, delivery timelines, and delivery performance, including
 
 ![Orders and Delivery Analysis](screenshots/05_Orders_Delivery_Analysis.png)
 
-**Dashboard file:** The `.pbix` file is not currently included in the GitHub repository. The screenshots above provide a visual preview of the dashboard.
+**Dashboard file:** [Olist_Ecommerce_Analytics_Dashboard.pbix](dashboard/Olist_Ecommerce_Analytics_Dashboard.pbix)
 
-## Analysis Areas
+## Key Findings
 
 The project investigates the following business areas:
 
-- **Customer behavior:** One-time versus repeat customers and purchasing frequency.
-- **Sales performance:** Changes in sales and order activity over time.
-- **Product performance:** Product and category contributions to sales.
-- **Geographic performance:** Differences in sales and order activity across locations.
-- **Payment behavior:** Payment method distribution and its relationship with order value.
-- **Delivery operations:** Order approval times, delivery durations, and late-delivery patterns.
+### Customer Behavior
 
-The results should be interpreted alongside the corresponding metrics and visualizations in the notebooks and dashboard.
+96.88% of customers (93,099 out of 96,096 total unique customers) are one-time buyers, while only 3.12% (2,997 customers) are repeat customers.
+
+The most active customer placed 17 orders.
+
+### Sales Performance
+
+A total of 99,441 orders generated 13,591,643.70 BRL in net sales (excluding freight).
+
+Average order value (AOV) per transaction is 137.75 BRL, with a peak single order value reaching 13,440.00 BRL.
+
+Order volumes grew significantly over time: 329 orders in 2016, 45,101 in 2017, and 54,011 in 2018.
+
+August was the peak sales month with 10,843 orders, followed by May (10,573) and July (10,318), whereas September was the lowest month with 4,305 orders.
+
+### Product Performance
+
+Most Sold Category by Units: cama_mesa_banho (Bed, Bath & Table) with 11,115 units sold.
+
+Top Revenue-Generating Category: beleza_saude (Health & Beauty) generating 1,258,681.34 BRL, followed closely by relogios_presentes (1,205,005.68 BRL).
+
+Top Best-Selling Product (Units): Product ID aca2eb7d00ea1a7b8ebd4e68314663af (527 units).
+
+Top Revenue Product: Product ID bb50f2e236e5eea0100680137654686c generating 63,885.00 BRL.
+
+### Geographic Performance
+
+High revenue concentration in the Southeast region: São Paulo (SP) dominates the market with 47,820 orders, contributing 38.28% of total revenue (5,202,955.05 BRL).
+
+Together, SP (38.28%), Rio de Janeiro (RJ - 13.42%), and Minas Gerais (MG - 11.66%) account for 63.36% of total platform sales.
+
+State with the lowest sales: Roraima (RR) at 0.06% (7,829.43 BRL).
+
+Paraíba (PB) recorded the highest Average Order Value (217.77 BRL), whereas São Paulo (SP) recorded the lowest (125.12 BRL).
+
+### Payment Behavior
+
+Total Payment Volume: 16,008,872.12 BRL across all methods with an average payment of 154.10 BRL.
+
+Credit Card is the preferred choice, accounting for 73.92% of orders (76,795 payments) and generating 12,542,084.19 BRL (Average value: 163.32 BRL).
+
+Boleto comes second at 19.04% (19,784 payments), followed by Vouchers (5.56%) and Debit Cards (1.47%).
+
+50.58% of payments were made in a single installment, while the overall average installment count was 2.85.
+
+### Delivery Operations
+
+- Average order approval time: 10.28 hours.
+- Average shipping preparation time (purchase-to-carrier dispatch): 2.81 days.
+- Average carrier-to-customer delivery time: 9.33 days.
+- Average total order delivery time: 12.56 days.
+- Late deliveries: 7,827 orders (7.87%) missed the estimated delivery date.
+
+- **Geographic Delivery Performance:** Average carrier-to-customer delivery time varied significantly across Brazilian states, ranging from 5.52 days in São Paulo (SP) to 24.57 days in Roraima (RR). These differences highlight opportunities to investigate regional logistics performance.
+
+### Customer Reviews & Satisfaction
+
+Average review score: 4.09 / 5.00.
+
+77.07% positive ratings (4-5 stars), 8.24% neutral (3 stars), and 14.69% negative ratings (1-2 stars).
+
+Only 41.30% of reviews included written comments. Customers leaving negative reviews were significantly more likely to leave comments (76.55% of 1-star reviews had comments vs. 35.85% of 5-star reviews).
 
 ## Business Recommendations
 
-The analysis can support business decisions in several areas:
+Based on the validated analytical results above, the following strategic business recommendations are proposed:
 
-- **Customer retention:** Investigate repeat-purchase behavior and identify opportunities to encourage customer loyalty.
-- **Product strategy:** Review high-performing categories and investigate low-performing categories before making inventory decisions.
-- **Geographic strategy:** Compare regional sales, order volume, and delivery performance when prioritizing markets.
-- **Delivery operations:** Investigate factors associated with late deliveries and identify opportunities to improve the customer experience.
-- **Payment analysis:** Use payment patterns to investigate customer preferences and order value.
-- **Performance monitoring:** Track key performance indicators through the dashboard to support business reviews.
+### Customer Retention & Loyalty
 
-These are potential recommendations. Specific actions should be supported by validated analytical results and the relevant business context.
+Insight: The purchase frequency rate is low, which necessitates an examination of opportunities for customer retention.
+
+Action: Implement post-purchase loyalty programs, automated re-engagement email campaigns, and personalized product recommendations to boost repeat purchase rates beyond 3.12%.
+
+### Product & Inventory Strategy
+
+Insight: High-volume categories (cama_mesa_banho) differ from high-revenue categories (beleza_saude and relogios_presentes).
+
+Action: Optimize inventory stock according to demand profile.
+
+### Geographic Expansion & Logistics Focus
+
+Insight: Average carrier-to-customer delivery time varied significantly across Brazilian states, ranging from 5.52 days in São Paulo (SP) to 24.57 days in Roraima (RR). These differences highlight opportunities to investigate regional logistics performance and identify potential areas for improvement.
+
+**Action:** Investigate the factors contributing to longer carrier-to-customer delivery times in states such as Roraima (RR), Amapá (AP), and Amazonas (AM). Evaluate regional logistics performance and identify opportunities to reduce delivery times while maintaining service quality.
+
+### Delivery Operations & Delay Reduction
+
+**Insight:** 7.87% of all orders experienced delivery delays. The relationship between delivery delays and negative customer reviews requires further investigation.
+
+**Action:** Investigate the relationship between delivery delays and review scores, improve estimated delivery-date accuracy during peak months, and evaluate regional logistics improvements to reduce delivery times and improve customer satisfaction.
+
+### Payment Method Optimization
+
+Insight: 73.92% of sales rely on credit cards, with single-payment transactions representing 50.58%.
+
+Action: Introduce zero-interest installment promotions for high-ticket items and streamline the checkout experience for Boleto and Debit Card users to minimize drop-off rates.
+
+### Performance Monitoring
+
+Continuously track main KPIs (AOV, Late Delivery %, Repeat Purchase Rate, and CSAT scores) via the Power BI dashboard during routine executive business reviews
 
 ## How to Run the Project
 
@@ -230,7 +312,7 @@ These are potential recommendations. Specific actions should be supported by val
 - Python installed on your computer.
 - Git installed.
 - Jupyter Notebook or JupyterLab.
-- Power BI Desktop to open the dashboard file, if you have obtained the `.pbix` file separately.
+- Power BI Desktop to open the dashboard file included in this repository.
 
 ### 1. Clone the Repository
 
@@ -284,7 +366,7 @@ Ensure that the dataset paths match your local directory structure and that the 
 
 ### 6. Open the Power BI Dashboard
 
-The `.pbix` file is not currently included in this repository. If you obtain the file separately, open it using Power BI Desktop and update the data-source paths as needed.
+Open the dashboard file using Power BI Desktop.
 
 ## Limitations
 
@@ -313,8 +395,5 @@ Potential extensions include:
 - **LinkedIn:** [Fatma Elzahraa](https://www.linkedin.com/in/fatma-elzahraa-4196181b8/)
 
 This project was developed as part of a Data Analytics portfolio to demonstrate data preparation, exploratory analysis, business metrics, visualization, and dashboard reporting.
-
-*This project was developed as part of a Data Analytics portfolio to demonstrate data preparation, exploratory analysis, business metrics, visualization, and dashboard reporting.*
-
 
 If you find this project helpful, feel free to ⭐ star the repository.
